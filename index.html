@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manutenção Escolar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f2f5f9;
+      color: #243447;
+    }
+
+    main {
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+
+    h1 { color: #175c42; }
+
+    label, input, select, button {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 12px;
+    }
+
+    input, select, button {
+      padding: 12px;
+      border: 1px solid #ccd4dc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #175c42;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Manutenção Escolar</h1>
+    <p>Registro de problemas e necessidades de manutenção.</p>
+
+    <label for="local">Local da escola</label>
+    <select id="local">
+      <option>Sala de aula</option>
+      <option>Refeitório</option>
+      <option>Corredor</option>
+      <option>Banheiro</option>
+      <option>Quadra esportiva</option>
+      <option>Área externa</option>
+    </select>
+
+    <label for="problema">Problema identificado</label>
+    <input id="problema"
+      placeholder="Ex.: torneira com vazamento">
+
+    <button onclick="registrar()">
+      Registrar teste
+    </button>
+
+    <p id="resultado" role="status"></p>
+  </main>
+
+  <script>
+    function registrar() {
+      const local = document.getElementById("local").value;
+      const problema =
+        document.getElementById("problema").value.trim();
+
+      if (!problema) {
+        document.getElementById("resultado").textContent =
+          "Informe o problema identificado.";
+        return;
+      }
+
+      document.getElementById("resultado").textContent =
+        "Teste realizado: " + local + " — " + problema;
+    }
+  </script>
+</body>
+</html>
